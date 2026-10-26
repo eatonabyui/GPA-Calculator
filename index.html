@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A transparent GPA projection calculator.">
+  <title>GPA Projection Calculator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <div>
+        <p class="eyebrow">Academic planning tool</p>
+        <h1>GPA Projection Calculator</h1>
+        <p class="subtitle">Estimate how grades, credits, and retakes may affect a cumulative GPA.</p>
+      </div>
+      <button id="helpButton" class="button button-quiet" type="button">How to use</button>
+    </div>
+  </header>
+
+  <main class="wrap layout">
+    <section class="card" aria-labelledby="baseline-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Step 1</p>
+          <h2 id="baseline-heading">Enter your current record</h2>
+        </div>
+        <button class="help-icon" type="button" data-help="baseline">?</button>
+      </div>
+      <div class="field-grid">
+        <label>Current cumulative GPA
+          <input id="currentGpa" type="number" min="0" max="4" step="0.001" value="0" inputmode="decimal">
+        </label>
+        <label>Current cumulative quality credits
+          <input id="currentCredits" type="number" min="0" step="0.01" value="0" inputmode="decimal">
+        </label>
+      </div>
+      <p class="hint">Use the GPA and cumulative quality credits from the same reporting point on the academic record.</p>
+    </section>
+
+    <section class="card" aria-labelledby="courses-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Step 2</p>
+          <h2 id="courses-heading">Add planned or in-progress courses</h2>
+        </div>
+        <button id="addCourse" class="button button-secondary" type="button">+ Add course</button>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Course</th><th>Credits</th><th>Expected grade</th><th>Retake?</th><th aria-label="Remove"></th></tr></thead>
+          <tbody id="courseRows"></tbody>
+        </table>
+      </div>
+      <p class="hint">For a retake, enter the previous grade and previous credits. A course lineage contributes only its latest attempt.</p>
+    </section>
+
+    <section class="card results" aria-labelledby="results-heading">
+      <div class="section-heading">
+        <div><p class="eyebrow">Results</p><h2 id="results-heading">Projection</h2></div>
+        <div class="actions"><button id="printButton" class="button button-secondary" type="button">Print results</button><button id="resetButton" class="button button-quiet" type="button">Reset</button></div>
+      </div>
+      <div id="messages" aria-live="polite"></div>
+      <div class="metric-grid">
+        <div class="metric"><span>Projected GPA</span><strong id="projectedGpa">—</strong></div>
+        <div class="metric"><span>GPA change</span><strong id="gpaChange">—</strong></div>
+        <div class="metric"><span>Quality points</span><strong id="projectedPoints">—</strong></div>
+        <div class="metric"><span>Quality credits</span><strong id="projectedCredits">—</strong></div>
+      </div>
+      <div class="table-wrap audit-wrap"><table><thead><tr><th>Course</th><th>Grade</th><th>Credits</th><th>Retake</th><th>Points added</th><th>Points removed</th><th>Net GPA credits</th></tr></thead><tbody id="auditRows"></tbody></table></div>
+      <p class="disclaimer">This is an estimate. Confirm the official result using the student's institutional academic record.</p>
+    </section>
+
+    <section class="card" aria-labelledby="scenarios-heading">
+      <div class="section-heading"><div><p class="eyebrow">Compare outcomes</p><h2 id="scenarios-heading">Scenario planner</h2></div></div>
+      <p class="hint">Set a target GPA to see the quality points needed after the courses above. This is a planning aid and does not change the projection.</p>
+      <div class="inline-form"><label>Target GPA <input id="targetGpa" type="number" min="0" max="4" step="0.001" placeholder="e.g., 3.500"></label><button id="compareButton" class="button button-primary" type="button">Calculate target</button></div>
+      <div id="targetResult" class="target-result" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <dialog id="helpDialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><h2>How to use this calculator</h2><p>Enter the current cumulative GPA and quality credits from the same academic-history report or transcript. Add each planned course, its credits, and expected grade.</p><p>For a retake, select “Yes” and enter the previous attempt. The calculator removes the previous attempt and applies the latest attempt. If a course is retaken again, keep only the latest attempt for that course lineage.</p><p>The calculator uses the supplied scale: A 4.0, A− 3.7, B+ 3.4, B 3.0, B− 2.7, C+ 2.4, C 2.0, C− 1.7, D+ 1.4, D 1.0, D− 0.7, F 0.0, and UW 0.0.</p></form></dialog>
+  <script src="app.js"></script>
+</body>
+</html>
