@@ -72,15 +72,9 @@
       <p class="disclaimer">This is an estimate. Confirm the official result using the student's institutional academic record.</p>
     </section>
 
-    <section class="card" aria-labelledby="scenarios-heading">
-      <div class="section-heading"><div><p class="eyebrow">Compare outcomes</p><h2 id="scenarios-heading">Scenario planner</h2></div></div>
-      <p class="hint">Set a target GPA to see the quality points needed after the courses above. This is a planning aid and does not change the projection.</p>
-      <div class="inline-form"><label>Target GPA <input id="targetGpa" type="number" min="0" max="4" step="0.001" placeholder="e.g., 3.500"></label><button id="compareButton" class="button button-primary" type="button">Calculate target</button></div>
-      <div id="targetResult" class="target-result" aria-live="polite"></div>
-    </section>
   </main>
 
-  <dialog id="helpDialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><h2>How to use this calculator</h2><p>Enter the current cumulative GPA and GPA Credits from the same academic-history report or transcript. Quality Points are a separate field and should not be entered as credits.</p><p>For a retake, select “Yes” and enter the previous attempt. The calculator removes the previous attempt and applies the latest attempt. If a course is retaken again, keep only the latest attempt for that course lineage.</p><p>The calculator uses the supplied scale: A 4.0, A− 3.7, B+ 3.4, B 3.0, B− 2.7, C+ 2.4, C 2.0, C− 1.7, D+ 1.4, D 1.0, D− 0.7, F 0.0, and UW 0.0.</p></form></dialog>
+  <dialog id="helpDialog"><form method="dialog"><button class="dialog-close" aria-label="Close">×</button><h2>How to use this calculator</h2><p>Enter the current cumulative GPA and GPA Credits from the student's academic history report or unofficial transcript. Quality Points are a separate field and should not be entered as credits.</p><p>For a retake, select “Yes” and enter the previous attempt. The calculator removes the previous attempt and applies the latest attempt. If a course is retaken again, keep only the latest attempt for that course lineage.</p><p>The calculator uses the supplied scale: A 4.0, A− 3.7, B+ 3.4, B 3.0, B− 2.7, C+ 2.4, C 2.0, C− 1.7, D+ 1.4, D 1.0, D− 0.7, F 0.0, and UW 0.0.</p></form></dialog>
   <script src="app.js"></script>
 </body>
 </html>
