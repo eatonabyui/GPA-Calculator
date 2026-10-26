@@ -36,7 +36,7 @@
           <input id="currentCredits" type="number" min="0" step="0.01" value="0" inputmode="decimal">
         </label>
       </div>
-      <p class="hint">Use the GPA and GPA Credits values from the same reporting point. Do not enter Quality Points in this field.</p>
+      <p class="hint">Use the Cumulative GPA and GPA Credits shown on the unofficial transcript or student's academic history report. <strong>REMEMBER:</strong> Do not enter Quality Points in this field.</p>
     </section>
 
     <section class="card" aria-labelledby="courses-heading">
@@ -53,7 +53,7 @@
           <tbody id="courseRows"></tbody>
         </table>
       </div>
-      <p class="hint">For a retake, enter the previous grade and previous credits. A course lineage contributes only its latest attempt.</p>
+      <p class="hint">For a retake, enter the previous grade and previous credits if different from the auto filled credit amount.</p>
     </section>
 
     <section class="card results" aria-labelledby="results-heading">
@@ -69,7 +69,7 @@
         <div class="metric"><span>Quality credits</span><strong id="projectedCredits">—</strong></div>
       </div>
       <div class="table-wrap audit-wrap"><table><thead><tr><th>Course</th><th>Grade</th><th>Credits</th><th>Retake</th><th>Points added</th><th>Points removed</th><th>Net GPA credits</th></tr></thead><tbody id="auditRows"></tbody></table></div>
-      <p class="disclaimer">This is an estimate. Confirm the official result using the student's institutional academic record.</p>
+      <p class="disclaimer">This is an unofficial estimate. Confirm the official GPA results by using the unofficial transcript or student's academic history report.</p>
     </section>
 
   </main>
